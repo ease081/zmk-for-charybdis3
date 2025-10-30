@@ -16,21 +16,21 @@
             compatible = "zmk,behavior-macro";
             label = "To1_macro";
             #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_EFF &rgb_ug RGB_COLOR_HSB(128,100,50) &to 1>;
+            bindings = <&rgb_ug RGB_EFF &rgb_ug RGB_COLOR_HSB(128,100,50) &to 0>;
         };
 
         To1_macro_A: To1_macro_A {
             compatible = "zmk,behavior-macro";
             label = "To1_macro_A";
             #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_COLOR_HSB(128,100,50) &to 1>;
+            bindings = <&rgb_ug RGB_COLOR_HSB(128,100,50) &to 0>;
         };
 
         To0_macro: To0_macro {
             compatible = "zmk,behavior-macro";
             label = "To0_macro";
             #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_EFR &to 0>;
+            bindings = <&rgb_ug RGB_EFR &to 1>;
         };
 
         To2_macro_A: To2_macro_A {
@@ -51,25 +51,25 @@
     keymap {
         compatible = "zmk,keymap";
 
+        layer_1 {
+            bindings = <
+&kp ESC         &kp F1  &kp F2  &kp F3                   &kp F4     &kp F5            &kp F6           &kp F7    &kp F8  &kp F9    &kp F10  &kp F11
+&kp TAB         &none   &kp N7  &kp N8                   &kp N9     &none             &none            &kp X     &kp C   &kp V     &none    &kp F12
+&kp LEFT_SHIFT  &none   &kp N4  &kp N5                   &kp N6     &kp LEFT_BRACE    &kp RIGHT_BRACE  &mkp MB1  &none   &mkp MB2  &to 1    &none
+&kp LCTRL       &kp N0  &kp N1  &kp N2                   &kp N3     &kp LBKT          &kp RBKT         &none     &none   &none     &none    &none
+                                &kp LANG_ZENKAKUHANKAKU  &kp SPACE  &To0_macro        &kp DELETE       &none
+                                                         &mkp MB1   &mkp MB2          &kp ENTER
+            >;
+        };
+
         layer_0 {
             bindings = <
 &kp ESC         &kp N1  &kp N2  &kp N3                   &kp N4     &kp N5        &lt 2 NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
 &kp TAB         &kp Q   &kp W   &kp E                    &kp R      &kp T         &kp Y           &kp U   &kp I      &kp O    &kp P     &kp EQUAL
 &kp LEFT_SHIFT  &kp A   &kp S   &kp D                    &kp F      &kp G         &kp H           &kp J   &kp K      &kp L    &kp SEMI  &kp APOS
 &kp LCTRL       &kp Z   &kp X   &kp C                    &kp V      &kp B         &kp N           &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
-                                &kp LANG_ZENKAKUHANKAKU  &kp SPACE  &To1_macro    &kp BACKSPACE   &to 1
+                                &kp LANG_ZENKAKUHANKAKU  &kp SPACE  &To1_macro    &kp BACKSPACE   &to 0
                                                          &kp LGUI   &kp LALT      &kp ENTER
-            >;
-        };
-
-        layer_1 {
-            bindings = <
-&kp ESC         &kp F1  &kp F2  &kp F3                   &kp F4     &kp F5            &kp F6           &kp F7    &kp F8  &kp F9    &kp F10  &kp F11
-&kp TAB         &none   &kp N7  &kp N8                   &kp N9     &none             &none            &kp X     &kp C   &kp V     &none    &kp F12
-&kp LEFT_SHIFT  &none   &kp N4  &kp N5                   &kp N6     &kp LEFT_BRACE    &kp RIGHT_BRACE  &mkp MB1  &none   &mkp MB2  &to 0    &none
-&kp LCTRL       &kp N0  &kp N1  &kp N2                   &kp N3     &kp LBKT          &kp RBKT         &none     &none   &none     &none    &none
-                                &kp LANG_ZENKAKUHANKAKU  &kp SPACE  &To0_macro        &kp DELETE       &none
-                                                         &mkp MB1   &mkp MB2          &kp ENTER
             >;
         };
 
@@ -81,6 +81,28 @@
 &rgb_ug RGB_EFF  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none         &rgb_ug RGB_TOG    &none  &none  &none  &none  &none  &none
                                                    &none            &none         &none              &none  &none
                                                                     &none         &none              &none
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+&kp ESC         &kp N1  &kp N2  &kp N3                   &kp N4     &kp N5        &lt 2 NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp TAB         &kp Q   &kp W   &kp E                    &kp R      &kp T         &kp Y           &kp U   &kp I      &kp O    &kp P     &kp EQUAL
+&kp LEFT_SHIFT  &kp A   &kp S   &kp D                    &kp F      &kp G         &kp H           &kp J   &kp K      &kp L    &kp SEMI  &kp APOS
+&kp LCTRL       &kp Z   &kp X   &kp C                    &kp V      &kp B         &kp N           &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
+                                &kp LANG_ZENKAKUHANKAKU  &kp SPACE  &To1_macro    &kp BACKSPACE   &to 0
+                                                         &kp LGUI   &kp LALT      &kp ENTER
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+&kp ESC         &kp F1  &kp F2  &kp F3                   &kp F4     &kp F5            &kp F6           &kp F7    &kp F8  &kp F9    &kp F10  &kp F11
+&kp TAB         &none   &kp N7  &kp N8                   &kp N9     &none             &none            &kp X     &kp C   &kp V     &none    &kp F12
+&kp LEFT_SHIFT  &none   &kp N4  &kp N5                   &kp N6     &kp LEFT_BRACE    &kp RIGHT_BRACE  &mkp MB1  &none   &mkp MB2  &to 1    &none
+&kp LCTRL       &kp N0  &kp N1  &kp N2                   &kp N3     &kp LBKT          &kp RBKT         &none     &none   &none     &none    &none
+                                &kp LANG_ZENKAKUHANKAKU  &kp SPACE  &To0_macro        &kp DELETE       &none
+                                                         &mkp MB1   &mkp MB2          &kp ENTER
             >;
         };
 
